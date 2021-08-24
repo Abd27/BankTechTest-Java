@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Bank {
     private Integer balance;
 
@@ -7,5 +9,9 @@ public class Bank {
 
     public Integer getBalance(){
         return balance;
+    }
+
+    public void deposit(Integer amount, LocalDate date){
+        balance += amount;
     }
 }
