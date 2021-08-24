@@ -21,6 +21,5 @@ public class Bank {
         } else {
             balance -= amount;
         }
-
     }
 }

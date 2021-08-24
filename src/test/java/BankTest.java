@@ -41,4 +41,5 @@ public class BankTest {
 
         assertEquals(exception.getMessage(), "Insufficient balance");
     }
+
 }
