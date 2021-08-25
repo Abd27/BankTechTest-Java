@@ -11,8 +11,12 @@ public class Bank {
         return balance;
     }
 
-    public void deposit(Integer amount, LocalDate date){
-        balance += amount;
+    public void deposit(Integer amount, LocalDate date) throws BankAccountException {
+        if(amount <= 0){
+            throw new BankAccountException("Invalid deposit");
+        } else {
+            balance += amount;
+        }
     }
 
     public void withdraw(Integer amount, LocalDate date) throws BankAccountException {

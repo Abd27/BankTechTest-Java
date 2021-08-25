@@ -19,7 +19,7 @@ public class BankTest {
     }
 
     @Test
-    void depositsMoneyToBank(){
+    void depositsMoneyToBank() throws BankAccountException{
         subject.deposit(100, LocalDate.of(2021, 8, 16));
         int result = subject.getBalance();
         assertEquals(100, result);
@@ -35,11 +35,20 @@ public class BankTest {
 
     @Test
     void raiseExceptionInsufficientBalance(){
-        Exception exception = assertThrows(Exception.class, () -> {
+        Exception exception = assertThrows(BankAccountException.class, () -> {
                     subject.withdraw(50, LocalDate.of(2021, 7, 14));
         });
 
         assertEquals(exception.getMessage(), "Insufficient balance");
+    }
+
+    @Test
+    void raiseExceptionForNegativeDeposit(){
+        Exception exception = assertThrows(BankAccountException.class, () -> {
+            subject.deposit(-9, LocalDate.of(2021, 8, 11));
+        });
+
+        assertEquals(exception.getMessage(), "Invalid deposit");
     }
 
 }
