@@ -51,4 +51,13 @@ public class BankTest {
         assertEquals(exception.getMessage(), "Invalid deposit");
     }
 
+    @Test
+    void canCreateTransactionAtDesposit() throws BankAccountException{
+        subject.deposit(100, LocalDate.of(2021, 8, 16));
+        Transaction transaction = subject.getTransactionHistory().get(0);
+        assertEquals(100, transaction.getCredit());
+        assertEquals(LocalDate.of(2021,8,16), transaction.getDate());
+    }
+
+
 }
