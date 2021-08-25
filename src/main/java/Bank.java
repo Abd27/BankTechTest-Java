@@ -31,6 +31,7 @@ public class Bank {
             throw new BankAccountException("Insufficient balance");
         } else {
             balance -= amount;
+            transactionHistory.add(new Transaction(0, amount, date));
         }
     }
 }

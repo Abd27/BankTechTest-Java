@@ -8,26 +8,25 @@ import org.junit.jupiter.api.BeforeEach;
 public class BankTest {
     Bank subject;
     @BeforeEach
-    void createNewBankAccount(){
-         subject = new Bank();
+    void createNewBankAccount() throws BankAccountException {
+        subject = new Bank();
+        subject.deposit(100, LocalDate.of(2021, 8, 16));
     }
 
     @Test
     void checkBalance(){
         int result = subject.getBalance();
-        assertEquals(0, result);
+        assertEquals(100, result);
     }
 
     @Test
-    void depositsMoneyToBank() throws BankAccountException{
-        subject.deposit(100, LocalDate.of(2021, 8, 16));
+    void depositsMoneyToBank(){
         int result = subject.getBalance();
         assertEquals(100, result);
     }
 
     @Test
     void withdrawMoneyFromBank() throws BankAccountException {
-        subject.deposit(100, LocalDate.of(2021, 8, 16));
         subject.withdraw(50, LocalDate.of(2021, 8, 20));
         int result = subject.getBalance();
         assertEquals(50, result);
@@ -36,7 +35,7 @@ public class BankTest {
     @Test
     void raiseExceptionInsufficientBalance(){
         Exception exception = assertThrows(BankAccountException.class, () -> {
-                    subject.withdraw(50, LocalDate.of(2021, 7, 14));
+                    subject.withdraw(150, LocalDate.of(2021, 7, 14));
         });
 
         assertEquals(exception.getMessage(), "Insufficient balance");
@@ -52,12 +51,20 @@ public class BankTest {
     }
 
     @Test
-    void canCreateTransactionAtDesposit() throws BankAccountException{
-        subject.deposit(100, LocalDate.of(2021, 8, 16));
+    void canCreateTransactionAtDesposit(){
         Transaction transaction = subject.getTransactionHistory().get(0);
         assertEquals(100, transaction.getCredit());
         assertEquals(LocalDate.of(2021,8,16), transaction.getDate());
     }
+
+    @Test
+    void canCreateTransactionAtWithdrawal() throws BankAccountException{
+        subject.withdraw(50, LocalDate.of(21, 8, 21));
+        Transaction transaction = subject.getTransactionHistory().get(1);
+        assertEquals(50, transaction.getDebit());
+        assertEquals(LocalDate.of(21,8,21), transaction.getDate());
+    }
+
 
 
 }
