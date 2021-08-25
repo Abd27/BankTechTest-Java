@@ -26,7 +26,7 @@ public class BankTest {
     }
 
     @Test
-    void withdrawMoneyFromBank() throws Exception {
+    void withdrawMoneyFromBank() throws BankAccountException {
         subject.deposit(100, LocalDate.of(2021, 8, 16));
         subject.withdraw(50, LocalDate.of(2021, 8, 20));
         int result = subject.getBalance();

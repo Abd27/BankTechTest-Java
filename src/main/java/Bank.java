@@ -15,9 +15,9 @@ public class Bank {
         balance += amount;
     }
 
-    public void withdraw(Integer amount, LocalDate date) throws Exception {
+    public void withdraw(Integer amount, LocalDate date) throws BankAccountException {
         if(amount > balance){
-            throw new Exception("Insufficient balance");
+            throw new BankAccountException("Insufficient balance");
         } else {
             balance -= amount;
         }
