@@ -64,7 +64,4 @@ public class BankTest {
         assertEquals(50, transaction.getDebit());
         assertEquals(LocalDate.of(21,8,21), transaction.getDate());
     }
-
-
-
 }

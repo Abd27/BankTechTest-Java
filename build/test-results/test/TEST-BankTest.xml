@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BankTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-25T14:17:37" hostname="ehtishams-MBP.cust.communityfibre.co.uk" time="0.107">
-  <properties/>
-  <testcase name="canCreateTransactionAtWithdrawal()" classname="BankTest" time="0.107"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
