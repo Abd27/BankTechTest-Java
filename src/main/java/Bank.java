@@ -22,17 +22,21 @@ public class Bank {
             throw new BankAccountException("Invalid deposit");
         } else {
             balance += amount;
-            transactionHistory.add(new Transaction(amount, 0, date));
+            transactionHistory.add(new Transaction(amount, 0, balance, date));
         }
     }
 
-    public void withdraw(Integer amount, LocalDate date) throws BankAccountException {
+    public void withdraw(float amount, LocalDate date) throws BankAccountException {
         if(amount > balance){
             throw new BankAccountException("Insufficient balance");
         } else {
             balance -= amount;
-            transactionHistory.add(new Transaction(0, amount, date));
+            transactionHistory.add(new Transaction(0, amount, balance, date));
         }
     }
 
+    public String generateStatement() {
+        Statement statement = new Statement(this.transactionHistory);
+        return statement.createStatement();
+    }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BankTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-08-26T17:08:50" hostname="ehtishams-MBP.cust.communityfibre.co.uk" time="0.118">
+  <properties/>
+  <testcase name="depositsMoneyToBank()" classname="BankTest" time="0.056"/>
+  <testcase name="canCreateTransactionAtDesposit()" classname="BankTest" time="0.001"/>
+  <testcase name="checkBalance()" classname="BankTest" time="0.002"/>
+  <testcase name="raiseExceptionForNegativeDeposit()" classname="BankTest" time="0.005"/>
+  <testcase name="raiseExceptionInsufficientBalance()" classname="BankTest" time="0.002"/>
+  <testcase name="generatesTheStatement()" classname="BankTest" time="0.042"/>
+  <testcase name="withdrawMoneyFromBank()" classname="BankTest" time="0.001"/>
+  <testcase name="canCreateTransactionAtWithdrawal()" classname="BankTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
