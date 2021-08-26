@@ -2,14 +2,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Bank {
-    private Integer balance;
+    private float balance;
     private ArrayList<Transaction> transactionHistory = new ArrayList<Transaction>();
 
     public Bank () {
         balance = 0;
     }
 
-    public Integer getBalance(){
+    public float getBalance(){
         return balance;
     }
 
@@ -17,7 +17,7 @@ public class Bank {
         return transactionHistory;
     }
 
-    public void deposit(Integer amount, LocalDate date) throws BankAccountException {
+    public void deposit(float amount, LocalDate date) throws BankAccountException {
         if(amount <= 0){
             throw new BankAccountException("Invalid deposit");
         } else {

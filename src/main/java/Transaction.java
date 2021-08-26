@@ -1,19 +1,19 @@
 import java.time.LocalDate;
 public class Transaction {
-    private Integer credit;
-    private Integer debit;
+    private float credit;
+    private float debit;
     private LocalDate date;
-    public Transaction(Integer credit, Integer debit, LocalDate date){
+    public Transaction(float credit, float debit, LocalDate date){
         this.credit = credit;
         this.debit = debit;
         this.date = date;
     }
 
-    public Integer getCredit(){
+    public float getCredit(){
         return this.credit;
     }
 
-    public Integer getDebit(){
+    public float getDebit(){
         return this.debit;
     }
 

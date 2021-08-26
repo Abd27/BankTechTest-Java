@@ -10,25 +10,25 @@ public class BankTest {
     @BeforeEach
     void createNewBankAccount() throws BankAccountException {
         subject = new Bank();
-        subject.deposit(100, LocalDate.of(2021, 8, 16));
+        subject.deposit(100f, LocalDate.of(2021, 8, 16));
     }
 
     @Test
     void checkBalance(){
-        int result = subject.getBalance();
+        float result = subject.getBalance();
         assertEquals(100, result);
     }
 
     @Test
     void depositsMoneyToBank(){
-        int result = subject.getBalance();
+        float result = subject.getBalance();
         assertEquals(100, result);
     }
 
     @Test
     void withdrawMoneyFromBank() throws BankAccountException {
         subject.withdraw(50, LocalDate.of(2021, 8, 20));
-        int result = subject.getBalance();
+        float result = subject.getBalance();
         assertEquals(50, result);
     }
 
